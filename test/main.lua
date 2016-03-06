@@ -4,13 +4,13 @@ function love.load()
 
   local verts = Earth.Utils.vertices.rectangle(0, 0, 200, 200)
   local holes = {
-    Earth.Utils.vertices.rectangle(10, 175, 100, -10),
-    Earth.Utils.vertices.ellipse(100, 100, 50, 50)
+    -- Earth.Utils.vertices.rectangle(-25, 175, 100, -50),
+    -- Earth.Utils.vertices.rectangle(50, 50, 50, 100),
+    Earth.Utils.vertices.ellipse(175, 100, 40, 40),
+    -- Earth.Utils.vertices.rectangle(100, 100, 200, 200)
   }
-  local shape = Earth.Shape:new(verts)
-  for _,hole in ipairs(holes) do
-    shape:addHole(hole)
-  end
+  shape = Earth.Shape:new(verts, holes)
+  shape:sanitize()
 
   local w, h = g.getWidth(), g.getHeight()
   background = g.newMesh({
