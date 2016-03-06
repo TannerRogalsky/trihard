@@ -1,15 +1,15 @@
 local g = love.graphics
 function love.load()
-  local Earth = require('earth')
+  local TriHard = require('trihard')
 
-  local verts = Earth.Utils.vertices.rectangle(0, 0, 200, 200)
+  local verts = TriHard.Utils.vertices.rectangle(0, 0, 200, 200)
   local holes = {
-    -- Earth.Utils.vertices.rectangle(-25, 175, 100, -50),
-    -- Earth.Utils.vertices.rectangle(50, 50, 50, 100),
-    Earth.Utils.vertices.ellipse(175, 100, 40, 40),
-    -- Earth.Utils.vertices.rectangle(100, 100, 200, 200)
+    -- TriHard.Utils.vertices.rectangle(-25, 175, 100, -50),
+    -- TriHard.Utils.vertices.rectangle(50, 50, 50, 100),
+    TriHard.Utils.vertices.ellipse(175, 100, 40, 40),
+    -- TriHard.Utils.vertices.rectangle(100, 100, 200, 200)
   }
-  shape = Earth.Shape:new(verts, holes)
+  shape = TriHard.Shape:new(verts, holes)
   shape:sanitize()
 
   local w, h = g.getWidth(), g.getHeight()
@@ -24,8 +24,8 @@ function love.load()
   g.draw(background)
   g.setCanvas()
 
-  local material = Earth.Material:new(texture)
-  geometry = Earth.Geometry:new(shape, material)
+  local material = TriHard.Material:new(texture)
+  geometry = TriHard.Geometry:new(shape, material)
 end
 
 function love.draw()
