@@ -1,3 +1,3 @@
-local _NAME = ... or arg[0]
+local _NAME = ...
 
 return require(_NAME .. '.src')
