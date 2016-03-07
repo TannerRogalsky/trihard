@@ -54,6 +54,8 @@ function Shape:sanitize()
   local contour_polygons = contour_polygon:simplify():clean()
   self.vertices = clipper2flat(contour_polygons:get(1))
 
+  if #self.holes < 1 then return end
+
   local hole_polygons = Clipper.polygons(#self.holes)
   for i,hole in ipairs(self.holes) do
     local polygon = flat2Clipper(hole)
