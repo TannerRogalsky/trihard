@@ -59,8 +59,7 @@ function Shape:sanitize()
   local hole_polygons = Clipper.polygons(#self.holes)
   for i,hole in ipairs(self.holes) do
     local polygon = flat2Clipper(hole)
-    -- hole_polygons:set(i, polygon:simplify():clean():get(1))
-    hole_polygons:set(i, polygon)
+    hole_polygons:set(i, polygon:simplify():get(1))
   end
 
   local clipper = Clipper.new()
