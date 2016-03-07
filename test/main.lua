@@ -4,10 +4,10 @@ function love.load()
 
   local verts = TriHard.Utils.vertices.rectangle(0, 0, 200, 200)
   local holes = {
-    -- TriHard.Utils.vertices.rectangle(-25, 175, 100, -50),
-    -- TriHard.Utils.vertices.rectangle(50, 50, 50, 100),
-    TriHard.Utils.vertices.ellipse(175, 100, 40, 40),
-    -- TriHard.Utils.vertices.rectangle(100, 100, 200, 200)
+    TriHard.Utils.vertices.rectangle(-25, 175, 100, -50),
+    TriHard.Utils.vertices.rectangle(50, 50, 50, 100),
+    TriHard.Utils.vertices.ellipse(125, 175, 40, 40, 4),
+    TriHard.Utils.vertices.ellipse(140, 75, 40, 40),
   }
   shape = TriHard.Shape:new(verts, holes)
   shape:sanitize()
