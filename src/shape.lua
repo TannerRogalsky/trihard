@@ -69,7 +69,6 @@ function Shape:sanitize()
   clipper:add_subject(hole_polygons)
   clipper:add_clip(contour_polygons)
   hole_polygons = clipper:execute('intersection', 'non_zero', 'non_zero')
-  clipper:free()
 
   self.holes = {}
   for i=1,hole_polygons:size() do
